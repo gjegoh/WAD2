@@ -1,0 +1,304 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PepeGuitar - Scores</title>
+    <!-- Bootstrap CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <!-- CSS Link -->
+    <link id='theme' rel="stylesheet" href="./style_light.css">
+    <link rel="stylesheet" href="./toggle.css">
+    <script src="https://kit.fontawesome.com/f32e44fdde.js" crossorigin="anonymous"></script>
+    <!-- Lora font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@1,600&display=swap" rel="stylesheet">
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <!-- Jquery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <!-- axios -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <!-- PHP -->
+    <!-- <script src='./Beginner/beginner.php'></script>
+    <script src='./Intermediate/intermediate.php'></script>
+    <script src='./Advanced/advanced.php'></script> -->
+</head>
+
+<body>
+
+    <!-- Loading Screen -->
+    <div class="loader-wrapper">
+        <svg class="tally" width="80" height="80" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+            <path class="tally__path" d="M 10 10 C 10 15, 10 35, 10 70" stroke="#000" stroke-width="8" fill="none" stroke-linecap="round" stroke-dasharray="60 60" stroke-dashoffset="60">
+                <animate attributeName="d" values="
+                            M 10 10 C 10 15, 10 35, 10 70;
+                            M 10 10 C 10 15, 10 35, 10 70;
+                            M 10 10 C 15 15, 15 35, 10 70;
+                            M 10 10 C 15 15, 15 35, 10 70;
+                            M 10 10 C  7 15,  7 35, 10 70;
+                            M 10 10 C 12 15, 12 35, 10 70;
+                            M 10 10 C 10 15, 10 35, 10 70;
+                            M 10 10 C 10 15, 10 35, 10 70
+                            " keyTimes="0;0.25;0.28;0.51;0.53;0.55;0.57;1" keySplines="0 0 0.5 1" dur="1.5s" repeatCount="indefinite" />
+                <animate attributeName="stroke-dashoffset" values="60;0;0;-60;-60" keyTimes="0;0.075;0.75;0.825;1" keySplines="0 0 0.5 1" dur="1.5s" repeatCount="indefinite" />
+            </path>
+            <path class="tally__path" d="M 30 10 C 30 25, 30 45, 30 70" stroke="#000" stroke-width="8" fill="none" stroke-linecap="round" stroke-dasharray="60 60" stroke-dashoffset="60">
+                <animate attributeName="d" values="
+                            M 30 10 C 30 25, 30 45, 30 70;
+                            M 30 10 C 30 25, 30 45, 30 70;
+                            M 30 10 C 35 25, 35 45, 30 70;
+                            M 30 10 C 35 25, 35 45, 30 70;
+                            M 30 10 C 27 25, 27 45, 30 70;
+                            M 30 10 C 32 25, 32 45, 30 70;
+                            M 30 10 C 30 25, 30 45, 30 70;
+                            M 30 10 C 30 25, 30 45, 30 70
+                            " keyTimes="0;0.25;0.28;0.51;0.53;0.55;0.57;1" keySplines="0 0 0.5 1" dur="1.5s" begin="0.1s" repeatCount="indefinite" />
+                <animate attributeName="stroke-dashoffset" values="60;0;0;-60;-60" keyTimes="0;0.075;0.75;0.825;1" keySplines="0 0 0.5 1" dur="1.5s" begin="0.1s" repeatCount="indefinite" />
+            </path>
+            <path class="tally__path" d="M 50 10 C 50 35, 50 55, 50 70" stroke="#000" stroke-width="8" fill="none" stroke-linecap="round" stroke-dasharray="60 60" stroke-dashoffset="60">
+                <animate attributeName="d" values="
+                            M 50 10 C 50 35, 50 55, 50 70;
+                            M 50 10 C 50 35, 50 55, 50 70;
+                            M 50 10 C 55 35, 55 55, 50 70;
+                            M 50 10 C 55 35, 55 55, 50 70;
+                            M 50 10 C 47 35, 47 55, 50 70;
+                            M 50 10 C 52 35, 52 55, 50 70;
+                            M 50 10 C 50 35, 50 55, 50 70;
+                            M 50 10 C 50 35, 50 55, 50 70
+                            " keyTimes="0;0.25;0.28;0.51;0.53;0.55;0.57;1" keySplines="0 0 0.5 1" dur="1.5s" begin="0.2s" repeatCount="indefinite" />
+                <animate attributeName="stroke-dashoffset" values="60;0;0;-60;-60" keyTimes="0;0.075;0.75;0.825;1" keySplines="0 0 0.5 1" dur="1.5s" begin="0.2s" repeatCount="indefinite" />
+            </path>
+            <path class="tally__path" d="M 70 10 C 70 45, 70 65, 70 70" stroke="#000" stroke-width="8" fill="none" stroke-linecap="round" stroke-dasharray="60 60" stroke-dashoffset="60">
+                <animate attributeName="d" values="
+                            M 70 10 C 70 45, 70 65, 70 70;
+                            M 70 10 C 70 45, 70 65, 70 70;
+                            M 70 10 C 75 45, 75 65, 70 70;
+                            M 70 10 C 75 45, 75 65, 70 70;
+                            M 70 10 C 67 45, 67 65, 70 70;
+                            M 70 10 C 72 45, 72 65, 70 70;
+                            M 70 10 C 70 45, 70 65, 70 70;
+                            M 70 10 C 70 45, 70 65, 70 70
+                            " keyTimes="0;0.25;0.28;0.51;0.53;0.55;0.57;1" keySplines="0 0 0.5 1" dur="1.5s" begin="0.3s" repeatCount="indefinite" />
+                <animate attributeName="stroke-dashoffset" values="60;0;0;-60;-60" keyTimes="0;0.075;0.75;0.825;1" keySplines="0 0 0.5 1" dur="1.5s" begin="0.3s" repeatCount="indefinite" />
+            </path>
+            <line class="tally__line" x1="4" y1="20" x2="76" y2="60" stroke="#000" stroke-width="8" fill="none" stroke-linecap="round" stroke-dasharray="82.37 82.37" stroke-dashoffset="82.37">
+                <animate attributeName="stroke-dashoffset" values="82.37;82.37;0;0;-82.37;-82.37" keyTimes="0;0.25;0.35;0.5;0.6;1" keySplines="0 0 0.5 1" dur="1.5s" repeatCount="indefinite" />
+            </line>
+        </svg>
+    </div>
+
+    <!-- Navbar -->
+    <header>
+        <div class="menu-toggle" id="hamburger">
+            <i class="fas fa-bars"></i>
+        </div>
+        <div class="overlay"></div>
+        <div class="container">
+            <nav>
+                <h1 class="brand"><span style='color:#E29C45;'>Pepe</span>Guitar</h1>
+                <ul>
+                    <li><a id='submit1' href="./Resources_light.html">Scores</a></li>
+                    <li><a id='submit2' href="./Appreciation_light.html">External Resources</a></li>
+                    <li style='margin-left: 43px;'>
+                        <div>
+                            <input type="checkbox" class="checkbox" id="chk" onchange="toggle()" checked>
+                            <label class="label" for="chk">
+                                <i class="fas fa-sun"></i>
+                                <i class="fas fa-moon"></i>
+                                <div class="ball"></div>
+                            </label>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class='container-fluid' id='main'>
+        <!-- header -->
+        <div id='info' class='row justify-content-center animate__animated animate__fadeIn animate__delay-2s' style='margin-top: 160px; margin-bottom: 65px; font-size: 30px;'>
+            SELECT A DIFFICULTY LEVEL
+        </div>
+        <!-- filter bar -->
+        <div class='row justify-content-evenly filterbar'>
+            <div class='col-lg-3 col-md-5 col-sm-11 sep animate__animated animate__bounceIn animate__delay-3s'>
+                <a id='beginner' onclick="populate(this)">
+                    <div class="filter btn-one">
+                        <span>Beginner</span>
+                    </div>
+                </a>
+            </div>
+            <div class='col-lg-3 col-md-5 col-sm-11 sep animate__animated animate__bounceIn animate__delay-3s' >
+                <a id='intermediate' onclick="populate(this)">
+                    <div class="filter btn-one">
+                        <span>Intermediate</span>
+                    </div>
+                </a>
+            </div>
+            <div class='col-lg-3 col-md-5 col-sm-11 sep animate__animated animate__bounceIn animate__delay-3s'>
+                <a id='advanced' onclick="populate(this)">
+                    <div class="filter btn-one">
+                        <span>Advanced</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <!-- Populated List -->
+    </div>
+
+    <!-- Scroll to top button -->
+    <footer>
+        <button id="myBtn" title="Go to top" class='animate__animated animate__fadeInUpBig' style='color: white;'>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M17.6568 8.96219L16.2393 10.3731L12.9843 7.10285L12.9706 20.7079L10.9706 20.7059L10.9843 7.13806L7.75404 10.3532L6.34314 8.93572L12.0132 3.29211L17.6568 8.96219Z" fill="currentColor"/>
+            </svg>
+        </button>
+    </footer>
+
+    <script>
+        // animation
+        $(window).on("load",function(){
+            $(".loader-wrapper").delay(500).fadeOut("slow");
+        });
+
+        // navbar
+        var open = document.getElementById("hamburger");
+        var main = document.getElementsByClassName('card')
+        var scrollbtn = document.getElementById('myBtn')
+        var changeIcon = true;
+        open.addEventListener("click", function () {
+            var overlay = document.querySelector(".overlay");
+            var nav = document.querySelector("nav");
+            var icon = document.querySelector(".menu-toggle i");
+            overlay.classList.toggle("menu-open");
+            nav.classList.toggle("menu-open");
+            if (changeIcon) {
+                for (let x of main) {
+                    x.style.zIndex = -1
+                }
+                scrollbtn.style.zIndex = -1
+                icon.classList.remove("fa-bars");
+                icon.classList.add("fa-times");
+                changeIcon = false;
+            } else {
+                for (let x of main) {
+                    x.style.zIndex = 0
+                }
+                scrollbtn.style.zIndex = 2
+                icon.classList.remove("fa-times");
+                icon.classList.add("fa-bars");
+                changeIcon = true;
+            }
+        });
+
+        // toggle light-dark mode
+        function toggle() {
+            if (document.getElementById('theme').getAttribute('href') == './style.css') {
+                document.getElementById('theme').setAttribute('href', './style_light.css')
+                document.getElementById('submit1').setAttribute('href', './Resources_light.html')
+                document.getElementById('submit2').setAttribute('href', './Appreciation_light.html')
+            }
+            else {
+                document.getElementById('theme').setAttribute('href', './style.css')
+                document.getElementById('submit1').setAttribute('href', './Resources.html')
+                document.getElementById('submit2').setAttribute('href', './Appreciation.html')
+            }
+        }
+
+        // Populate the page
+        function populate(x) {
+            if (document.getElementById('info') != null) {
+                document.getElementById('info').style.display = 'none'
+            }
+            let page = document.getElementById('main')
+            page.innerHTML = `  <div class='row justify-content-evenly filterbar'>
+                                <div class='col-lg-3 col-md-5 col-sm-11 sep'>
+                                    <a id='beginner' onclick="populate(this)">
+                                        <div class="filter btn-one">
+                                            <span>Beginner</span>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class='col-lg-3 col-md-5 col-sm-11 sep'>
+                                    <a id='intermediate' onclick="populate(this)">
+                                        <div class="filter btn-one">
+                                            <span>Intermediate</span>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class='col-lg-3 col-md-5 col-sm-11 sep'>
+                                    <a id='advanced' onclick="populate(this)">
+                                        <div class="filter btn-one">
+                                            <span>Advanced</span>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>`
+            let songs = ''
+            if (x.id === 'beginner') {
+                songs = beginner
+            }
+            else if (x.id === 'intermediate') {
+                songs = intermediate
+            }
+            else {
+                songs = advanced
+            }
+            let curr = ''
+            let diff = x.id
+            for (let i=0; i<songs.length; i++) {
+                if (i % 3 === 0) {
+                    page.innerHTML += `<div class='row justify-content-evenly' id='row${i}'></div>`
+                    curr = `row${i}`
+                }
+                document.getElementById(curr).innerHTML += `<div class='col-lg-3 col-md-5 col-sm-10 sep'>
+                                                                <div class="card text-center font bg animate__animated animate__zoomIn">
+                                                                    <div class="card-header">
+                                                                        ${songs[i].split('_').join(' ').toUpperCase()} <button class='btn ${diff}'>${diff.charAt(0).toUpperCase() + diff.slice(1)}</button>
+                                                                    </div>
+                                                                    <div class="card-body text-start">
+                                                                        <h5 class="card-title">
+                                                                            <a href="./${diff}/${songs[i]}.pdf" target='_blank' class="btn-flip" data-back="Download" data-front="Score"></a>
+                                                                        </h5>
+                                                                        <h5 class="card-title">
+                                                                            <a href="./${diff}/${songs[i]}.mp3" target='_blank' class="btn-flip" data-back="Download" data-front="MP3"></a>
+                                                                        </h5>
+                                                                    </div>
+                                                                    <div class="card-footer text-muted">
+                                                                        <audio src="./${diff}/${songs[i]}.mp3" controls="controls">
+                                                                            Your browser does not support the audio element.
+                                                                        </audio>
+                                                                    </div>
+                                                                </div>
+                                                            </div>`
+            }
+        }
+
+        // Scroll to top
+        mybutton = document.getElementById("myBtn")
+        window.onscroll = function() {
+            scrollFunction()
+        };
+        function scrollFunction() {  
+            if (document.body.scrollTop > 20  || document.documentElement.scrollTop > 20) {
+                mybutton.style.display = "block";
+            } else {
+                mybutton.style.display = "none";
+            }
+        }
+        $("button[id='myBtn']").click(function() {
+            $("html, body").animate({ scrollTop: 0 }, "slow");
+            return false;
+        });
+    </script>
+<!-- LEAVE LINE BELOW EMPTY FOR SCRIPT -->
+<script> let beginner = ['44_Gatti', 'Blue_Moon', 'Fra_Martino', 'Glory_Glory_Alleluja', 'Greensleeves', 'Habanera_Carmen_facile', 'Happy_Birthday', 'Il_Caffe_della_Peppina', 'Il_Carnevale_di_Venezia', 'Inno_alla_Gioia', 'Jingle_Bells', 'La_biondina_in_gondoleta', 'Michelle_Easy_Version', 'Oh_My_Darling_Clementine', 'Oh_Susanna', 'Piva_Piva_facile', 'Popeye_Song', 'Santa_Lucia', 'Silent_Night_4_chitarre', 'Te_Deum_Facilitated']; let intermediate = ['Bella_Ciao', 'Bocca_di_rosa', 'Celebre_Adagio', 'Cielito_Lindo', 'Donna_Rosa', 'Fascination', 'il_Valzer_delle_candele', 'Io_che_amo_solo_te', 'La_Cucaracha', 'La_Donna_e_mobile', 'La_Marseillaise', 'Lua_Branca', 'Mattinata', 'Mi_votu_e_mi_rivotu', 'Non_e_Francesca', 'Preludio_Colorato_Vinciguerra', 'Saltimbanco', 'Tetris', 'White_Christmas_Facilitated', 'Yesterday']; let advanced = ['Bach_Invention_13', 'Canzone_per_Te', 'ChElla_mi_creda_libero_e_lontano', 'Deh_vieni_alla_finestra', 'Ed_io_tra_di_voi', 'Il_Ciclone', 'Lambada', 'Mamma_mia_che_vo_sape', 'Maria', 'Nessun_Dorma', 'Sulle_rive_del_Danubio', 'Take_Five', 'The_Girl_of_Ipanema', 'Toccata', 'Tu_scendi_dalle_stelle', 'Una_furtiva_lagrima', 'Va_Pensiero', 'White_Christmas'];</script>
+</body>
+</html>

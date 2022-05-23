@@ -1,0 +1,471 @@
+/* global styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Lora', serif;
+}
+
+html {
+    font-size: 10px;
+    overflow-x: hidden;
+}
+
+body {
+    background: black;
+    color:white;
+}
+
+body.light {
+    background: white;
+    color: black;
+}
+
+/* loading screen */
+.loader-wrapper {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: 2000;
+    top: 0;
+    left: 0;
+    background-color: #a92f41;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    font-size: calc(16px + (24 - 16) * (100vw - 320px) / (1280 - 320));
+}
+
+.tally {
+    width: 10em;
+    height: 10em;
+}
+
+.tally__line, .tally__path {
+    stroke: white;
+}
+
+/* intro element */
+.intro {
+    position:absolute;
+    top:50%;
+    left:50%;
+    width: 50%;
+    height: auto; 
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.intro h1 {
+    font-size: 2em !important;
+}
+
+.intro p {
+    font-size: 1em !important;
+}
+
+.intro a {
+    font-size: 20px !important;
+}
+
+/* navbar */
+a {
+    text-decoration: none;
+    color: #eee;
+}
+
+a:hover {
+    color: #E29C45;
+}
+
+header {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    overflow: hidden;
+    background: black;
+    z-index: 1;
+    padding-bottom: 10px;
+    border-bottom: solid 1px white;
+}
+
+.container {
+    max-width: 120rem;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.menu-toggle {
+    position: fixed;
+    top: 2.5rem;
+    right: 2.5rem;
+    color: #eeeeee;
+    font-size: 3rem;
+    cursor: pointer;
+    z-index: 1000;
+    display: none;
+    border: none;
+    outline: none;
+    border-radius: 50%;
+    background: #a92f41;
+    padding: 12px;
+}
+
+.menu-toggle:hover {
+    background: #641b26;
+}
+
+nav {
+    padding-top: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-transform: uppercase;
+    font-size: 1.6rem;
+}
+
+.brand {
+    font-size: 3rem;
+    font-weight: 300;
+    transform: translateX(-100rem);
+    animation: slideIn 0.5s forwards;
+}
+
+.brand span {
+    color: #E29C45;
+}
+
+nav ul {
+    display: flex;
+}
+
+nav ul li {
+    list-style: none;
+    transform: translateX(100rem);
+    animation: slideIn 0.5s forwards;
+}
+
+nav ul li:nth-child(1) {
+    animation-delay: 0.5s;
+}
+
+nav ul li:nth-child(2) {
+    animation-delay: 1s;
+}
+
+nav ul li:nth-child(3) {
+    animation-delay: 1.5s;
+}
+
+nav ul li a {
+    padding: 1rem 0;
+    margin: 0 3rem;
+    position: relative;
+    letter-spacing: 2px;
+}
+
+nav ul li a:last-child {
+    margin-right: 0;
+}
+
+nav ul li a::before,
+nav ul li a::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: #a92f41;
+    left: 0;
+    transform: scaleX(0);
+    transition: all 0.5s;
+}
+
+nav ul li a::before {
+    top: 0;
+    transform-origin: left;
+}
+
+nav ul li a::after {
+    bottom: 0;
+    transform-origin: right;
+}
+
+.overlay {
+    background-color: rgba(0, 0, 0, 0.95);
+    position: fixed;
+    right: 0;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    transition: opacity 650ms;
+    transform: scale(0);
+    opacity: 0;
+    display: none;
+}
+
+nav ul li a:hover::before,
+nav ul li a:hover::after {
+    transform: scaleX(1);
+}
+
+@keyframes slideIn {
+    from {
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+@media screen and (max-width: 700px) {
+    header {
+        border-bottom: none;
+    }
+
+    .menu-toggle {
+        display: block;
+        animation: lightSpeedInRight 1s;
+    }
+
+    nav {
+        padding-top: 0;
+        display: none;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        height: 100vh;
+        text-align: center;
+    }
+
+    nav ul {
+        flex-direction: column;
+    }
+
+    nav ul li {
+        margin-top: 5rem;
+    }
+
+    nav ul li a {
+        margin: 0;
+        font-size: 2.5rem;
+    }
+
+    .brand {
+        font-size: 5rem;
+    }
+
+    .overlay.menu-open,
+    nav.menu-open {
+        display: flex;
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* cards */
+.sep{
+    margin-top: 3rem;
+}
+
+.container-fluid {
+    margin-top: 10rem;
+}
+
+.bg {
+    background: rgb(229,228,226);
+}
+
+.card-header {
+    font-size: 2em;
+    color: black;
+}
+
+.card-title {
+    font-size: 2em;
+}
+
+/* audio */
+audio {
+    width: 100%;
+    height: 35px;
+}
+
+/* difficulty icons */
+.beginner {
+    background: green;
+    color: white;
+    margin-bottom: 4px;
+    font-size: 15px;
+}
+
+.intermediate {
+    background: orange;
+    color: #252120;
+    margin-bottom: 4px;
+    font-size: 15px;
+}
+
+.advanced {
+    background: red;
+    color: white;
+    margin-bottom: 4px;
+    font-size: 15px;
+}
+
+/* Download buttons */
+.btn-flip {
+    opacity: 1;
+    outline: 0;
+    color: #fff;
+    line-height: 40px;
+    position: relative;
+    text-align: center;
+    letter-spacing: 1px;
+    display: inline-block;
+    text-decoration: none;
+    margin-top: 10px;
+    display: block;
+}
+
+.btn-flip:hover:after {
+    opacity: 1;
+    transform: translateY(0) rotateX(0);
+}
+
+.btn-flip:hover:before {
+    opacity: 0;
+    transform: translateY(50%) rotateX(90deg);
+}
+
+.btn-flip:after {
+    top: 0;
+    left: 0;
+    opacity: 0;
+    width: 100%;
+    color: white;
+    display: block;
+    transition: 0.5s;
+    position: absolute;
+    background: #E29C45;
+    content: attr(data-back);
+    transform: translateY(-50%) rotateX(90deg);
+}
+
+.btn-flip:before {
+    top: 0;
+    left: 0;
+    opacity: 1;
+    color: white;
+    display: block;
+    padding: 0 30px;
+    line-height: 40px;
+    transition: 0.5s;
+    position: relative;
+    background: #a92f41;
+    content: attr(data-front);
+    transform: translateY(0) rotateX(0);
+}
+
+/* filter buttons */
+.filter {
+    line-height: 50px;
+    height: 50px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.btn-one {
+    color: #fff;
+    transition: all 0.3s;
+    position: relative;
+    font-size: 2.5rem;
+}
+
+.btn-one span {
+    transition: all 0.3s;
+}
+
+.btn-one::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: all 0.3s;
+    border-top-width: 1px;
+    border-bottom-width: 1px;
+    border-top-style: solid;
+    border-bottom-style: solid;
+    border-top-color: #a92f41;
+    border-bottom-color: #a92f41;
+    transform: scale(0.1, 1);
+}
+
+.btn-one:hover span {
+    letter-spacing: 2px;
+    color: #E29C45;
+}
+
+.btn-one:hover::before {
+    opacity: 1;
+    transform: scale(1, 1);
+}
+
+.btn-one::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: all 0.3s;
+    background-color: rgba(255, 255, 255, 0);
+}
+
+.btn-one:hover::after {
+    opacity: 0;
+    transform: scale(0.1, 1);
+}
+
+/* scrollbar */
+::-webkit-scrollbar-track
+{
+	background-color: black;
+}
+
+::-webkit-scrollbar
+{
+	width: 6px;
+	background-color: black;
+}
+
+::-webkit-scrollbar-thumb
+{
+	background-color: #a92f41;
+}
+
+/* scroll to top button */
+#myBtn {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 30px;
+    z-index: 2;
+    border: none;
+    outline: none;
+    background: #a92f41;
+    cursor: pointer;
+    padding: 15px;
+    border-radius: 50%;
+    font-size: 18px;
+}
+
+#myBtn:hover {
+    background: #611b26;
+    color:white;
+}
+
+.table {
+    color: white;
+}

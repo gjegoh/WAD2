@@ -1,0 +1,538 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<!-- 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <title>PepeGuitar - External Resources</title>
+    <!-- Bootstrap CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <!-- CSS Link -->
+    <link id='theme' rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./universe.css">
+    <link rel="stylesheet" href="./toggle.css">
+    <script src="https://kit.fontawesome.com/f32e44fdde.js" crossorigin="anonymous"></script>
+    <!-- Lora font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@1,600&display=swap" rel="stylesheet">
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <!-- Jquery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <!-- Axios/Spotify APIs -->
+    <script src="https://unpkg.com/vue@next"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.24.0/axios.min.js"></script>
+</head>
+
+<body>
+
+    <!-- Loading Screen -->
+    <div class="loader-wrapper">
+        <svg class="tally" width="80" height="80" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+            <path class="tally__path" d="M 10 10 C 10 15, 10 35, 10 70" stroke="#000" stroke-width="8" fill="none" stroke-linecap="round" stroke-dasharray="60 60" stroke-dashoffset="60">
+                <animate attributeName="d" values="
+                            M 10 10 C 10 15, 10 35, 10 70;
+                            M 10 10 C 10 15, 10 35, 10 70;
+                            M 10 10 C 15 15, 15 35, 10 70;
+                            M 10 10 C 15 15, 15 35, 10 70;
+                            M 10 10 C  7 15,  7 35, 10 70;
+                            M 10 10 C 12 15, 12 35, 10 70;
+                            M 10 10 C 10 15, 10 35, 10 70;
+                            M 10 10 C 10 15, 10 35, 10 70
+                            " keyTimes="0;0.25;0.28;0.51;0.53;0.55;0.57;1" keySplines="0 0 0.5 1" dur="1.5s" repeatCount="indefinite" />
+                <animate attributeName="stroke-dashoffset" values="60;0;0;-60;-60" keyTimes="0;0.075;0.75;0.825;1" keySplines="0 0 0.5 1" dur="1.5s" repeatCount="indefinite" />
+            </path>
+            <path class="tally__path" d="M 30 10 C 30 25, 30 45, 30 70" stroke="#000" stroke-width="8" fill="none" stroke-linecap="round" stroke-dasharray="60 60" stroke-dashoffset="60">
+                <animate attributeName="d" values="
+                            M 30 10 C 30 25, 30 45, 30 70;
+                            M 30 10 C 30 25, 30 45, 30 70;
+                            M 30 10 C 35 25, 35 45, 30 70;
+                            M 30 10 C 35 25, 35 45, 30 70;
+                            M 30 10 C 27 25, 27 45, 30 70;
+                            M 30 10 C 32 25, 32 45, 30 70;
+                            M 30 10 C 30 25, 30 45, 30 70;
+                            M 30 10 C 30 25, 30 45, 30 70
+                            " keyTimes="0;0.25;0.28;0.51;0.53;0.55;0.57;1" keySplines="0 0 0.5 1" dur="1.5s" begin="0.1s" repeatCount="indefinite" />
+                <animate attributeName="stroke-dashoffset" values="60;0;0;-60;-60" keyTimes="0;0.075;0.75;0.825;1" keySplines="0 0 0.5 1" dur="1.5s" begin="0.1s" repeatCount="indefinite" />
+            </path>
+            <path class="tally__path" d="M 50 10 C 50 35, 50 55, 50 70" stroke="#000" stroke-width="8" fill="none" stroke-linecap="round" stroke-dasharray="60 60" stroke-dashoffset="60">
+                <animate attributeName="d" values="
+                            M 50 10 C 50 35, 50 55, 50 70;
+                            M 50 10 C 50 35, 50 55, 50 70;
+                            M 50 10 C 55 35, 55 55, 50 70;
+                            M 50 10 C 55 35, 55 55, 50 70;
+                            M 50 10 C 47 35, 47 55, 50 70;
+                            M 50 10 C 52 35, 52 55, 50 70;
+                            M 50 10 C 50 35, 50 55, 50 70;
+                            M 50 10 C 50 35, 50 55, 50 70
+                            " keyTimes="0;0.25;0.28;0.51;0.53;0.55;0.57;1" keySplines="0 0 0.5 1" dur="1.5s" begin="0.2s" repeatCount="indefinite" />
+                <animate attributeName="stroke-dashoffset" values="60;0;0;-60;-60" keyTimes="0;0.075;0.75;0.825;1" keySplines="0 0 0.5 1" dur="1.5s" begin="0.2s" repeatCount="indefinite" />
+            </path>
+            <path class="tally__path" d="M 70 10 C 70 45, 70 65, 70 70" stroke="#000" stroke-width="8" fill="none" stroke-linecap="round" stroke-dasharray="60 60" stroke-dashoffset="60">
+                <animate attributeName="d" values="
+                            M 70 10 C 70 45, 70 65, 70 70;
+                            M 70 10 C 70 45, 70 65, 70 70;
+                            M 70 10 C 75 45, 75 65, 70 70;
+                            M 70 10 C 75 45, 75 65, 70 70;
+                            M 70 10 C 67 45, 67 65, 70 70;
+                            M 70 10 C 72 45, 72 65, 70 70;
+                            M 70 10 C 70 45, 70 65, 70 70;
+                            M 70 10 C 70 45, 70 65, 70 70
+                            " keyTimes="0;0.25;0.28;0.51;0.53;0.55;0.57;1" keySplines="0 0 0.5 1" dur="1.5s" begin="0.3s" repeatCount="indefinite" />
+                <animate attributeName="stroke-dashoffset" values="60;0;0;-60;-60" keyTimes="0;0.075;0.75;0.825;1" keySplines="0 0 0.5 1" dur="1.5s" begin="0.3s" repeatCount="indefinite" />
+            </path>
+            <line class="tally__line" x1="4" y1="20" x2="76" y2="60" stroke="#000" stroke-width="8" fill="none" stroke-linecap="round" stroke-dasharray="82.37 82.37" stroke-dashoffset="82.37">
+                <animate attributeName="stroke-dashoffset" values="82.37;82.37;0;0;-82.37;-82.37" keyTimes="0;0.25;0.35;0.5;0.6;1" keySplines="0 0 0.5 1" dur="1.5s" repeatCount="indefinite" />
+            </line>
+        </svg>
+    </div>
+
+    <!-- Navbar -->
+    <header>
+        <div class="menu-toggle" id="hamburger">
+            <i class="fas fa-bars"></i>
+        </div>
+        <div class="overlay"></div>
+        <div class="container">
+            <nav>
+                <h1 class="brand"><span style='color:#E29C45;'>Pepe</span>Guitar</h1>                
+                <ul>
+                    <li><a id='submit1' href="./Resources.html">Scores</a></li>
+                    <li><a id='submit2' href="./Appreciation.html">External Resources</a></li>
+                    <li style='margin-left: 43px;'>
+                        <div>
+                            <input type="checkbox" class="checkbox" id="chk" onchange="toggle()">
+                            <label class="label" for="chk">
+                                <i class="fas fa-sun"></i>
+                                <i class="fas fa-moon"></i>
+                                <div class="ball"></div>
+                            </label>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Spotify Playlists -->
+    <div class="container-fluid">
+        <div class='row justify-content-center' style='margin-bottom: 15px;'>
+                <div class="col-12 text-center" style='font-size: 30px;'>
+                    Spotify Playlists of the Week
+                </div>
+        </div>
+        <div class='row justify-content-center' style='margin-bottom: 15px;'>
+            <div class='col-lg-3 col-md-4 col-5'>
+                <a style='font-size: 20px' class="btn-flip" data-back="Refresh" data-front="See More!" onclick="refresh()"></a>
+            </div>
+        </div>
+        <div class="row justify-content-center" id='display'>
+        </div>
+    </div>
+
+    <!-- Youtube Playlists -->
+    <div id="Youtube" class="container">
+        <!--buttons-->
+        <div class="container text-center" style='font-size: 30px; margin-bottom: 15px; margin-top: 60px;'>
+            Youtube Playlists of the Week        
+        </div>
+        <div class="container text-center" style='margin-bottom: 15px;'>
+            <button v-for ="(contents, name) in interests"
+                class="btn" data-bs-toggle="collapse" v-bind:data-bs-target="'#'+ name" 
+                aria-expanded="false" v-bind:aria-controls="name" @click="collapse()">
+                <img v-bind:src="contents.thumbnail" width="100" class="rounded-circle">
+            </button>
+        </div>
+
+        <!--collapse sections-->
+        <div v-for ="(contents, name) in interests"
+            class="container collapse" data-parent="#Youtube" v-bind:id="name" style='margin-bottom: 15px;'>
+            <!-- channel descriptions-->
+            <div>
+                <p style='font-size: 15px;'><span style="color: #E29C45">Channel name: </span>{{contents.name}}</p>
+                <p style='font-size: 15px;'><span style="color: #E29C45">Channel description: </span>{{contents.description}}</p>
+            </div>
+            <!--carousel-->
+            <div v-bind:id="'Carousel'+ name" class="carousel slide position-relative">
+                <!--carousel indicators-->
+                <div class="carousel-indicators position-absolute top-100">
+                    <button type="button" v-bind:data-bs-target="'#Carousel'+ name" data-bs-slide-to="0" class="active" aria-current="true" aria-label="1" @click="stopsliding()"></button>
+                    <button type="button" v-for="m in contents.playlists.length-1" v-bind:data-bs-target="'#Carousel'+ name" v-bind:data-bs-slide-to="m" v-bind:aria-label="m+1" @click="stopsliding()"></button>
+                </div>
+                <!--carousel videos-->
+                <div class="carousel-inner">
+                    <!--first active video-->
+                    <div class="carousel-item active video_wrapper" >
+                        <iframe 
+                            v-bind:src="'https://www.youtube.com/embed/videoseries?list='+contents.playlists[0] + '&enablejsapi=1'" 
+                            title="YouTube video player" frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+                        </iframe>
+                    </div>
+                    <!--rest videos-->
+                    <div v-for="n in contents.playlists.length-1" 
+                        class="carousel-item video_wrapper" >
+                            <iframe
+                                v-bind:src="'https://www.youtube.com/embed/videoseries?list='+contents.playlists[n] + '&enablejsapi=1'" 
+                                title="YouTube video player" frameborder="0" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+                            </iframe>
+                    </div>
+                </div>
+                <!--carousel left right buttons-->
+                <button class="carousel-control-prev" type="button" v-bind:data-bs-target="'#Carousel'+ name" data-bs-slide="prev" @click="stopsliding()">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" v-bind:data-bs-target="'#Carousel'+ name" data-bs-slide="next" @click="stopsliding()">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Recommended Websites -->
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="col-10 text-white">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th class='text-center pb-3' colspan="2" style='font-size: 30px;'>
+                                Recommended Websites for Additional Practice
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <table class='table'>
+                                    <tr>
+                                        <td class='text-center align-middle' style='padding-bottom: 13px;'>
+                                            Classical Guitar Shed
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            A website with articles, video tutorials, courses, and programs that will help you learn the guitar and eventually master it.
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                            <td class='text-center align-middle' style='border-left: solid 1px white'>
+                                <a href="https://www.classicalguitarshed.com/" target='_blank' class="btn-flip" data-back="Learn More" data-front="Visit" style='padding-bottom: 10px;'></a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <table class='table'>
+                                    <tr>
+                                        <td class='text-center align-middle' style='padding-bottom: 13px;'>
+                                            Chitarrarete
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            An excellent resource for a repository of free guitar scores and arrangements by Giuseppe Torrisi.
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                            <td class='text-center align-middle' style='border-left: solid 1px white'>
+                                <a href="http://www.chitarrarte.it/" target='_blank' class="btn-flip" data-back="Learn More" data-front="Visit" style='padding-bottom: 10px;'></a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scroll to top button -->
+    <footer>
+        <button id="myBtn" title="Go to top" class='animate__animated animate__fadeInUpBig' style='color: white;'>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M17.6568 8.96219L16.2393 10.3731L12.9843 7.10285L12.9706 20.7079L10.9706 20.7059L10.9843 7.13806L7.75404 10.3532L6.34314 8.93572L12.0132 3.29211L17.6568 8.96219Z" fill="currentColor"/>
+            </svg>
+        </button>
+    </footer>
+
+    <!-- Website code -->
+    <script>
+        // animation
+        $(window).on("load",function(){
+            $(".loader-wrapper").delay(500).fadeOut("slow");
+        });
+
+        // navbar
+        var open = document.getElementById("hamburger");
+        var main = document.getElementsByClassName('card')
+        var scrollbtn = document.getElementById('myBtn')
+        var changeIcon = true;
+        open.addEventListener("click", function () {
+            var overlay = document.querySelector(".overlay");
+            var nav = document.querySelector("nav");
+            var icon = document.querySelector(".menu-toggle i");
+            overlay.classList.toggle("menu-open");
+            nav.classList.toggle("menu-open");
+            if (changeIcon) {
+                for (let x of main) {
+                    x.style.zIndex = -1
+                }
+                scrollbtn.style.zIndex = -1
+                icon.classList.remove("fa-bars");
+                icon.classList.add("fa-times");
+                changeIcon = false;
+            } else {
+                for (let x of main) {
+                    x.style.zIndex = 0
+                }
+                scrollbtn.style.zIndex = 2
+                icon.classList.remove("fa-times");
+                icon.classList.add("fa-bars");
+                changeIcon = true;
+            }
+        });
+
+         // toggle light-dark mode
+        function toggle() {
+            if (document.getElementById('theme').getAttribute('href') == './style.css') {
+                document.getElementById('theme').setAttribute('href', './style_light.css')
+                document.getElementById('submit1').setAttribute('href', './Resources_light.html')
+                document.getElementById('submit2').setAttribute('href', './Appreciation_light.html')
+            }
+            else {
+                document.getElementById('theme').setAttribute('href', './style.css')
+                document.getElementById('submit1').setAttribute('href', './Resources.html')
+                document.getElementById('submit2').setAttribute('href', './Appreciation.html')
+            }
+        }
+
+        // Scroll to top
+        mybutton = document.getElementById("myBtn")
+        window.onscroll = function() {
+            scrollFunction()
+        };
+        function scrollFunction() {  
+            if (document.body.scrollTop > 20  || document.documentElement.scrollTop > 20) {
+                mybutton.style.display = "block";
+            } else {
+                mybutton.style.display = "none";
+            }
+        }
+        $("button[id='myBtn']").click(function() {
+            $("html, body").animate({ scrollTop: 0 }, "slow");
+            return false;
+        });
+    </script>
+
+    <!-- Axios/Spotify APIs -->
+    <script>
+        let client_id = '8c8963de217343da89154d4dd9d27cf4'
+        let client_secret = 'd390b69d6d3d43469f7296e006f71704'
+        let playlist_links = []
+        let displayed_playlists = []
+        // Used async -> promises and await to retrieve token
+        async function getToken()  {
+            //fetch token using id & secret
+            // https://developer.spotify.com/documentation/general/guides/authorization/client-credentials/
+            const result = await fetch('https://accounts.spotify.com/api/token', {
+                method: 'POST',
+                headers: {
+                    'Content-Type' : 'application/x-www-form-urlencoded', 
+                    'Authorization' : 'Basic ' + btoa(client_id + ':' + client_secret)
+                },
+                body: 'grant_type=client_credentials'
+            })
+            const data = await result.json()
+            return data
+        }
+        function formatName(name) {
+            let final = []
+            for (let word of name.split(" ")) {
+                final.push(word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+            }
+            return final.join(" ")
+        }
+        function getRand(len) {
+            let selections = []
+            let final = []
+            for (let i=0; i<len; i++) {
+                selections.push(i)
+            }
+            let rand = 0
+            let range = selections.length
+            for (let i=0; i<3; i++) {
+                rand = Math.floor((Math.random() * range))
+                final.push(selections[rand])
+                selections.splice(rand, 1)
+                range --
+            }
+            return final
+        }
+        function refresh() {
+            let display = ""
+            displayed_playlists = []
+            for (let num of getRand(playlist_links.length)) {
+                displayed_playlists.push(playlist_links[num])
+            }
+            for (let i=0; i<3; i++) {
+                display += `<div class="col-lg-4 col-md-6 col-sm-10 animate__animated animate__fadeIn animate__delay-1s" style='margin-bottom: 15px;'>
+                                <div class="card text-center text-white bg-dark">
+                                    <div class="card-body">
+                                        <h5 class="card-title" id="card${i}title">${displayed_playlists[i].name}</h5>
+                                    </div>
+                                    <iframe id="card${i}frame" src="https://open.spotify.com/embed?uri=spotify:playlist:${displayed_playlists[i].link}" height="380" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+                                </div>
+                            </div>`
+            }
+            document.getElementById('display').innerHTML = display
+        }
+        getToken()
+            .then((data) => {
+                // retrieve token
+                let token = data.access_token
+                // use token to get APIs via axios
+                // find playlist via search APIs (Keyword: Classical Guitar)
+                return axios.get(`https://api.spotify.com/v1/search?q=classical%20guitar&type=playlist&limit=20`, {
+                    headers: { 'Authorization' : 'Bearer ' + token}
+                })
+                    .then((response) => {
+                        //Push playlist ids data into array
+                        for (let item of response.data.playlists.items){ 
+                            playlist_links.push({name: formatName(item.name), link: item.id})
+                        }
+                        // get default display
+                        refresh()
+                    })
+                    .catch((error) => {
+                        console.log(error)
+                    })      
+            })
+        
+
+    </script>
+
+    <!--Youtube script-->
+    <script>
+        const yts = Vue.createApp({
+            data() {
+                return {
+                    interests: {
+                        "SG":{
+                            id: "UCR39sLAZ5wS_vrMo4tRylHw",
+                            name: "SiccasGuitars",
+                            //thumbnail: "https://yt3.ggpht.com/ytc/AKedOLQJfWP6Z5JAkTrxtkGb5PcoCRfrxB6PSzxw51VGkOA=s800-c-k-c0x00ffffff-no-rj",
+                            thumbnail: "ytimgs/siccas.jpg",
+                            description: "Classical guitars are our passion! We are specialized in the highest quality concert guitars as well as historic guitars from around the world. Our passion for these unique instruments and the joy to give guitarists, passionate players, and collectors the possibility to purchase their own appropriate instrument is the motivation that drives us. Another focus is to work closely with established and young, largely unknown luthiers. Together we want to develop new ideas and share experiences with our customers. New offers, reports, videos and event notifications, dealing with the topic of the guitar, are constantly updated and also sent out as a newsletter. Everybody who is interested can subscribe to this newsletter.\n\nYou can find our show room in 76137 Karlsruhe, Roonstr. 31, Germany\n\nShowroom visity by appointmen only:\nMo-Fr from 10 a.m. to 6 p.m. (CET)\nSat. from 10 a.m. to 3 p.m.\n\nYou can contact us via mail: info@siccasguitars.com\nOr just give us a call: +49 (0)721 - 38 14 32 75",
+                            playlists: [
+                                "PLWOAHYyavpQg49Ro6gX8cMocqOMpG_yMh",
+                                "PLWOAHYyavpQj00OS2gifYGYhs8iFUSEcc",
+                            ]
+                            // Playlists
+                            // "PLWOAHYyavpQiPbNDdQVlIEauYS-Qoaf5q",
+                            // "PLWOAHYyavpQiAAMARJ08Fsvyv65-Y-R0t",
+                            // "PLWOAHYyavpQiRD8C05bGImSEXp5KLpMSk",
+                            // "PLWOAHYyavpQigsf56MXjifvisq6caKCZo",
+                            // "PLWOAHYyavpQjDfVnkywp3xbzltOuybYTH",
+                            // "PLWOAHYyavpQh5k_fO0iQ9Cm4hJ_ObGy47",
+                            // "PLWOAHYyavpQiLhuLFvj-jIeeLAvXOH5YD",
+                            // "PLWOAHYyavpQgqHWGtNXdSjhsc5Pug3XIt",
+                            // "PLWOAHYyavpQhzY5wkpHE0_AGu72x7JjdN",
+                            // "PLWOAHYyavpQjITi5iQnQ4Ee95E0xid8wz",
+                            // "PLWOAHYyavpQhyZqFLdng7H-OcQk__BDOp",
+                            // "PLWOAHYyavpQh_61p2etfViLSRLPPbLvei",
+                            // "PLWOAHYyavpQgYm7MHIh3-xBPwAXq1V4kk",
+                            // "PLWOAHYyavpQgHMaD-FRjbfXPP-XwMPYAF",
+                            // "PLWOAHYyavpQhsH6YQLrDmpgfY7sPjx0Fn"
+                            
+                        },
+
+                        // "CGS": {
+                        //     id: "UCctL_oFrn2ycthAYCOvw4QQ",
+                        //     name: "Classical Guitar Shed",
+                        //     //thumbnail: "https://yt3.ggpht.com/ytc/AKedOLQUrWdIgQaXtsk9pS7P4X92DlprPa3xlAr9YXQz1g=s800-c-k-c0x00ffffff-no-rj",
+                        //     thumbnail: "ytimgs/CGS.jpg",
+                        //     description: "ClassicalGuitarShed is an exploration of music, skill, and daily endeavor on the classical guitar.  Visit http://www.ClassicalGuitarShed.com for articles, videos and ramblings on any and all aspects of learning and mastering the classical guitar.",
+                        //     playlists: [
+                        //         "PLE32FpNcePwO-hvndzUl0k8hqe57WzYe1",
+                        //         "PLE32FpNcePwM-5EAXMu6brPqhawuz3rXS"
+                        //     ]
+                        //     // Playlists
+                        //     // 
+                        // },
+
+                        // "Vj": {
+                        //     id: "UCSilRxlBwkywBVuWOFUY6FQ",
+                        //     name: "Veojam",
+                        //     //thumbnail: "https://yt3.ggpht.com/ytc/AKedOLSHxHEbi5_sElhcsrmyfnWCL6Vgmo-G-YifciWA=s800-c-k-c0x00ffffff-no-rj",
+                        //     thumbnail: "ytimgs/VJ.jpg",
+                        //     description: "A collection of top quality guitar videos from\n\nhttps://www.veojam.com\n\ncommunity for guitarists and guitar fans.\nCheck out over 5000 top quality guitar videos!\n\nJOIN FREE! \nUpload, watch, comment share, promote yourself!",
+                        //     playlists: [
+                        //         "PLB6E35005E51E2A60",
+                        //         "PLE938D8F4B579F7F3",
+                        //     ]
+                        //     // Playlists
+                        //     // "PLCA5DAB6877763B99",
+                        //     // "PLE0FD8C3E0674B949"
+                        // },
+
+                        "GSI": {
+                            id: "UC1Uz3Jz4PXd9CpMkF-1XJwA",
+                            name: "Guitar Salon International",
+                            //thumbnail: "https://yt3.ggpht.com/ytc/AKedOLSkKyJwnvd4TjEwHO_7C5pNsdb-BKQE0P8kATvkYg=s800-c-k-c0x00ffffff-no-rj",
+                            thumbnail: "ytimgs/GSI.jpg",
+                            description: "Founded in 1983, Guitar Salon International (GSI) is the world’s largest dealer of concert-level classical and flamenco guitars. For over 35 years now, we serve players, collectors and aficionados by offering the best hand-built instruments of leading young guitar makers as well as those of established historical masters. In this process, we acquire and sell many of the most desirable instruments in history, and we subsequently help to assemble important private collections. With the involvement of top concert artists (including Pepe Romero, Scott Tennant, Marc Teicholz, Andrew York and others), GSI showcases several exceptional guitars through audio, video, studio-CD and live concert recordings.\n\nGuitar Salon International established the GSI Foundation in 2011 after receiving public donations aimed at community development. The Foundation’s mission is to help develop the local community by raising money to support music education in public schools.",
+                            playlists: [
+                                "PLI7sqnuBtWjm4IFr_9zOmxVYe6VpMj1xE",
+                                "PLI7sqnuBtWjmiPkuEVikXZ1SUHoFOhxa2",
+                            ]
+                        },
+
+                        "GT": {
+                            id: "UCyfdWGh5VR_XT0mE7-DT1tw",
+                            name: "Giuseppe Torrisi",
+                            //thumbnail: "https://yt3.ggpht.com/ytc/AKedOLQCV7cX3BKpWDMFCamfi5i1QT_qKdJsjkJCjOB-2g=s800-c-k-c0x00ffffff-no-rj",
+                            thumbnail: "ytimgs/GT.jpg",
+                            description: "I'm an Italian Classical Guitarist, Arranger and Composer. In this channel you will find videos of my original compositions, my arrangements, my Students, and more... For more info about my guitar arrangements please send me an email at: info@chitarrarte.it\nPlease make a contribution if you like my work and you want to support me! Greetings from Sicily, ciao! 😎 🙏🏻",
+                            playlists: [
+                                "PLX721mvwg478Iy_hoiPO3rhOfgAhVevKf",
+                                "PLX721mvwg4784HaKpI98uoaT813C_cMtZ",
+                            ]
+                            // Playlists
+                            // "PLX721mvwg479ZcWqSUtcZf8VjWgjQG1MM",
+                            // "PLX721mvwg47-SAQMQoBGTw8Ld7w1f-bmT",
+                            // "PLX721mvwg47_XyJopYjWnTopyDbiqoPgl",
+                            // "PLX721mvwg47_vfW_EugzjXzmV2lwSkKu5",
+                            // "PLX721mvwg479G1J4fNzenZpikR3CPIgXA",
+                            // "PLX721mvwg47-ThJ3yLVlWG3tT2NYkvBXO",
+                        },
+                    },
+                }
+            },
+            methods: {
+                collapse() {
+                    $('.collapse').collapse('hide');
+                    
+                },
+                stopsliding(){
+                    $('.carousel').carousel({
+                        pause: true,
+                        interval: false
+                    })
+                }
+            }
+        })
+        yts.mount("#Youtube")
+    </script>
+
+
+</body>
+</html>
